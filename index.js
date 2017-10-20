@@ -32,7 +32,11 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.line -= 1;
+				if (!isNaN(cue.line)) {
+					cue.line -= 1;
+				} else {
+					cue.line = 15;
+				}
 			});
 			return true;
 		} else {
@@ -44,7 +48,11 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.line += 1;
+				if (!isNaN(cue.line)) {
+					cue.line += 1;
+				} else {
+					cue.line = 16;
+				}
 			});
 			return true;
 		} else {
@@ -56,7 +64,11 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.position -= percent || 5;
+				if (!isNaN(cue.position)) {
+					cue.position -= percent || 5;
+				} else {
+					cue.position = 50 - percent;
+				}
 			});
 			return true;
 		} else {
@@ -68,7 +80,11 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.position += percent || 5;
+				if (!isNaN(cue.position)) {
+					cue.position += percent || 5;
+				} else {
+					cue.position = 50 + percent;
+				}
 			});
 			return true;
 		} else {
