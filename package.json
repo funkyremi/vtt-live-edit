@@ -1,7 +1,7 @@
 {
   "name": "vtt-live-edit",
   "version": "1.0.0",
-  "description": "Live edit VTT subtitles (delay, sync, position, style...) on html native player",
+  "description": "Live edit VTT subtitles (delay, sync, position, style...) on html5 native player",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/funkyremi/vtt-live-edit/issues"
   },
-  "homepage": "https://github.com/funkyremi/vtt-live-edit#readme"
+  "homepage": "https://github.com/funkyremi/vtt-live-edit#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
