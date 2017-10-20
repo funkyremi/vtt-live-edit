@@ -6,8 +6,8 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.startTime += offset;
-				cue.endTime += offset;
+				cue.startTime += offset || 0.5;
+				cue.endTime += offset || 0.5;
 			});
 			return true;
 		} else {
@@ -19,8 +19,8 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.startTime -= offset;
-				cue.endTime -= offset;
+				cue.startTime -= offset || 0.5;
+				cue.endTime -= offset || 0.5;
 			});
 			return true;
 		} else {
@@ -56,7 +56,7 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.position -= percent;
+				cue.position -= percent || 5;
 			});
 			return true;
 		} else {
@@ -68,11 +68,17 @@ module.exports = {
 		if (!!video) {
 			const currentTrack = _.filter(video.textTracks, { mode: 'showing' })[0];
 			_.each(currentTrack.cues, (cue) => {
-				cue.position += percent;
+				cue.position += percent || 5;
 			});
 			return true;
 		} else {
 			return false;
 		}
 	},
+	setFontSize (fontSize) {
+		const css = document.createElement('style');
+		css.type = 'text/css';
+		css.innerHTML = `::cue { font-size: ${fontSize}px; }`;
+		document.body.appendChild(css);
+	}
 };

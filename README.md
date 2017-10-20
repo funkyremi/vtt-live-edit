@@ -3,20 +3,77 @@
 Live edit VTT subtitles (delay, sync, position, style...) on html5 native player.
 
 ```
-npm install vtt-live-edit
+npm install vtt-live-edit --save
 ```
+
+
+## Documentation
+
+The library modify the currently showing subtitle track of a video (selected by the video id)
+
+__addOffset__
+
+Add an offset to the currently showing subtitle track. Default is 500ms.
+
+`addOffset(<video id> [, offset in second]);`
+
+__removeOffset__
+
+Remove an offset to the currently showing subtitle track. Default is 500ms.
+
+`removeOffset(<video id> [, offset in second]);`
+
+__moveLeft__
+
+Move the subtitle to the left. Default is 5%.
+
+`moveLeft(<video id> [, <percent to move]);`
+
+__moveRight__
+
+Move the subtitle to the right. Default is 5%.
+
+`moveRight(<video id> [, <percent to move]);`
+
+__moveUp__
+
+Move the subtitle up (line by line).
+
+`moveUp(<video id>);`
+
+__moveDown__
+
+Move the subtitle down (line by line).
+
+`moveDown(<video id>);`
+
+__setFontSize__
+
+Set the subtitles font size
+
+`setFontSize(<font size in px>);`
+
 
 ## Usage
 
-``` js
-const vtt = require('vtt-live-edit')
+``` html
+<video id="video">
+    <source src="video.mp4" type="video/mp4"/>
+    <track kind="subtitles" label="default" src="subtitle.vtt" default>
+</video>
+```
 
-vtt.addOffset('video', 0.5);		// Add 500ms offset to the currently showing vtt track
-vtt.removeOffset('video', 0.5);		// Remove 500ms offset to the currently showing vtt track
-vtt.moveLeft('video', 5);			// Move subtitle 5% left to the currently showing vtt track
-vtt.moveRight('video', 5);			// Move subtitle 5% right to the currently showing vtt track
-vtt.moveUp('video');				// Move subtitle one line up to the currently showing vtt track
-vtt.moveDown('video');				// Move subtitle one line down to the currently showing vtt track
+``` js
+const vtt = require('vtt-live-edit');
+// or import vtt from 'vtt-live-edit';
+
+vtt.addOffset('video', 0.5);    // Add 500ms offset
+vtt.removeOffset('video', 0.5); // Remove 500ms offset
+vtt.moveLeft('video', 5);       // Move subtitle 5% left
+vtt.moveRight('video', 5);      // Move subtitle 5% right
+vtt.moveUp('video');            // Move subtitle one line up
+vtt.moveDown('video');          // Move subtitle one line down
+vtt.setFontSize(20);            // Set subtitle size to 20px
 ```
 
 ## License
