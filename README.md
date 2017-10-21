@@ -27,13 +27,13 @@ __moveLeft__
 
 Move the subtitle to the left. Default is 5%.
 
-`moveLeft(<video id> [, <percent to move]);`
+`moveLeft(<video id> [, percent to move]);`
 
 __moveRight__
 
 Move the subtitle to the right. Default is 5%.
 
-`moveRight(<video id> [, <percent to move]);`
+`moveRight(<video id> [, percent to move]);`
 
 __moveUp__
 
