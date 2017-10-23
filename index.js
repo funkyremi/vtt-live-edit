@@ -1,5 +1,5 @@
 module.exports = {
-	addOffset (videoId, offset) {
+	addOffset(videoId, offset) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
@@ -14,7 +14,7 @@ module.exports = {
 		}
 		return false;
 	},
-	removeOffset (videoId, offset) {
+	removeOffset(videoId, offset) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
@@ -29,13 +29,13 @@ module.exports = {
 		}
 		return false;
 	},
-	moveUp (videoId) {
+	moveUp(videoId) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.line)) {
+						if (!Number.isNaN(Number.parseInt(cue.line))) {
 							cue.line -= 1;
 						} else {
 							cue.line = 15;
@@ -47,13 +47,13 @@ module.exports = {
 		}
 		return false;
 	},
-	moveDown (videoId) {
+	moveDown(videoId) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.line)) {
+						if (!Number.isNaN(Number.parseInt(cue.line))) {
 							cue.line += 1;
 						} else {
 							cue.line = 16;
@@ -65,13 +65,13 @@ module.exports = {
 		}
 		return false;
 	},
-	moveLeft (videoId, percent) {
+	moveLeft(videoId, percent) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.position)) {
+						if (!Number.isNaN(Number.parseInt(cue.position))) {
 							cue.position -= percent || 5;
 						} else {
 							cue.position = 50 - percent;
@@ -83,13 +83,13 @@ module.exports = {
 		}
 		return false;
 	},
-	moveRight (videoId, percent) {
+	moveRight(videoId, percent) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.position)) {
+						if (!Number.isNaN(Number.parseInt(cue.position))) {
 							cue.position += percent || 5;
 						} else {
 							cue.position = 50 + percent;
@@ -101,13 +101,13 @@ module.exports = {
 		}
 		return false;
 	},
-	setFontSize (fontSize) {
+	setFontSize(fontSize) {
 		const css = document.createElement('style');
 		css.type = 'text/css';
 		css.innerHTML = `::cue { font-size: ${fontSize}px; }`;
 		document.body.appendChild(css);
 	},
-	setFontColor (fontColor) {
+	setFontColor(fontColor) {
 		const css = document.createElement('style');
 		css.type = 'text/css';
 		css.innerHTML = `::cue { color: ${fontSize}; }`;
