@@ -1,66 +1,14 @@
-function offSetFactory(symbol, cuesArray, offset = 0.5) {
-	Array.from(cuesArray).forEach((cue) => {
-		if (symbol === '+') {
-			cue.startTime += offset;
-			cue.endTime += offset;
-			return true;
-		} else if (symbol === '-') {
-			cue.startTime += offset;
-			cue.endTime += offset;
-			return true;
-		} else {
-			return false;
-		}
-	});
-}
-
-function moveFactory(symbol, cuesArray) {
-	Array.from(cuesArray).forEach((cue) => {
-		if (symbol === '-') {
-			if (!Number.isNaN(Numeber.parseInt(cue.line))) {
-				cue.line -= 1;
-			} else {
-				cue.line = 15;
-			}
-		} else if (symbol === '+') {
-			if (!Number.isNaN(Numeber.parseInt(cue.line))) {
-				cue.line -= 1;
-			} else {
-				cue.line = 16;
-			}
-		} else {
-			return false;
-		}
-	});
-}
-
-function percentFactory(symbol, cuesArray) {
-	Array.from(track.cues).forEach((cue) => {
-		if (symbol === '-') {
-			if (!Number.isNaN(Numeber.parseInt(cue.position))) {
-				cue.position -= percent || 5;
-			} else {
-				cue.position = 50 - percent;
-			}
-		} else if (symbol === '+') {
-			if (!Number.isNaN(Numeber.parseInt(cue.position))) {
-				cue.position += percent || 5;
-			} else {
-				cue.position = 50 + percent;
-			}
-		} else {
-			return false;
-		}
-	});
-}
-
 module.exports = {
 	addOffset(videoId, offset) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return offSetFactory('+', track.cues, offset);
+					Array.from(track.cues).forEach((cue) => {
+						cue.startTime += offset || 0.5;
+						cue.endTime += offset || 0.5;
+					});
+					return true;
 				}
 			});
 		}
@@ -71,7 +19,11 @@ module.exports = {
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return offSetFactory('-', track.cues, offset);
+					Array.from(track.cues).forEach((cue) => {
+						cue.startTime -= offset || 0.5;
+						cue.endTime -= offset || 0.5;
+					});
+					return true;
 				}
 			});
 		}
@@ -82,7 +34,14 @@ module.exports = {
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return mooveFactory('-', track.cues);
+					Array.from(track.cues).forEach((cue) => {
+						if (!Number.isNaN(Number.parseInt(cue.line))) {
+							cue.line -= 1;
+						} else {
+							cue.line = 15;
+						}
+					});
+					return true;
 				}
 			});
 		}
@@ -93,7 +52,14 @@ module.exports = {
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return mooveFactory('+', track.cues);
+					Array.from(track.cues).forEach((cue) => {
+						if (!Number.isNaN(Number.parseInt(cue.line))) {
+							cue.line += 1;
+						} else {
+							cue.line = 16;
+						}
+					});
+					return true;
 				}
 			});
 		}
@@ -104,7 +70,14 @@ module.exports = {
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return percentFactory('-', track.cues);
+					Array.from(track.cues).forEach((cue) => {
+						if (!Number.isNaN(Number.parseInt(cue.position))) {
+							cue.position -= percent || 5;
+						} else {
+							cue.position = 50 - percent;
+						}
+					});
+					return true;
 				}
 			});
 		}
@@ -115,7 +88,14 @@ module.exports = {
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					return percentFactory('+', track.cues);
+					Array.from(track.cues).forEach((cue) => {
+						if (!Number.isNaN(Number.parseInt(cue.position))) {
+							cue.position += percent || 5;
+						} else {
+							cue.position = 50 + percent;
+						}
+					});
+					return true;
 				}
 			});
 		}
