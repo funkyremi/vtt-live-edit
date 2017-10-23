@@ -1,7 +1,7 @@
 module.exports = {
 	addOffset (videoId, offset) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -16,7 +16,7 @@ module.exports = {
 	},
 	removeOffset (videoId, offset) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -31,7 +31,7 @@ module.exports = {
 	},
 	moveUp (videoId) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -49,7 +49,7 @@ module.exports = {
 	},
 	moveDown (videoId) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -67,7 +67,7 @@ module.exports = {
 	},
 	moveLeft (videoId, percent) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -85,7 +85,7 @@ module.exports = {
 	},
 	moveRight (videoId, percent) {
 		const video = document.getElementById(videoId);
-		if (!!video) {
+		if (video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
 					Array.from(track.cues).forEach((cue) => {
@@ -110,7 +110,7 @@ module.exports = {
 	setFontColor (fontColor) {
 		const css = document.createElement('style');
 		css.type = 'text/css';
-		css.innerHTML = `::cue { color: ${fontSize}; }`;
+		css.innerHTML = `::cue { color: ${fontColor}; }`;
 		document.body.appendChild(css);
 	}
 };
