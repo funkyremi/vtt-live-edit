@@ -53,6 +53,12 @@ Set the subtitles font size
 
 `setFontSize(<font size in px>);`
 
+__setFontColor__
+
+Set the subtitles font color
+
+`setFontColor(<font color value>);`
+
 
 ## Usage
 
@@ -74,6 +80,7 @@ vtt.moveRight('video', 5);      // Move subtitle 5% right
 vtt.moveUp('video');            // Move subtitle one line up
 vtt.moveDown('video');          // Move subtitle one line down
 vtt.setFontSize(20);            // Set subtitle size to 20px
+vtt.setFontColor('#bbb');       // Set subtitle size to #BBB
 ```
 
 ## License
