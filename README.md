@@ -1,3 +1,7 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/funkyremi/vtt-live-edit/badge.svg)](https://snyk.io/test/github/funkyremi/vtt-live-edit)
+[![npm version](https://img.shields.io/npm/v/vtt-live-edit.svg)](https://www.npmjs.com/package/vtt-live-edit)
+[![Dependency Status](https://david-dm.org/funkyremi/vtt-live-edit.svg)](https://david-dm.org/funkyremi/vtt-live-edit)
+
 # vtt-live-edit
 
 Live edit VTT subtitles (delay, sync, position, style...) on html5 native player.
@@ -27,13 +31,13 @@ __moveLeft__
 
 Move the subtitle to the left. Default is 5%.
 
-`moveLeft(<video id> [, <percent to move]);`
+`moveLeft(<video id> [, percent to move]);`
 
 __moveRight__
 
 Move the subtitle to the right. Default is 5%.
 
-`moveRight(<video id> [, <percent to move]);`
+`moveRight(<video id> [, percent to move]);`
 
 __moveUp__
 
