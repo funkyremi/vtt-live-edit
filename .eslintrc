@@ -1,0 +1,88 @@
+{
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"allowImportExportEverywhere": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"airbnb"
+	],
+	"rules": {
+		"security/detect-object-injection": "off",
+		"security/detect-non-literal-fs-filename": "off",
+		"security/detect-non-literal-regexp": "off",
+		"security/detect-unsafe-regex": "off",
+		"no-undef": "off",
+		"no-control-regex": "off",
+		"prefer-destructuring": "off",
+		"no-unused-vars": "off",
+		"no-useless-escape": "off",
+		"consistent-return": "off",
+		"no-extra-boolean-cast": "off",
+		"spaced-comment": "off",
+		"no-loop-func": "off",
+		"no-restricted-properties": "off",
+		"no-global-assign": "off",
+		"new-cap": "off",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"ArrayExpression": 1,
+				"ObjectExpression": 1
+			}
+		],
+		"no-mixed-spaces-and-tabs": [
+			"error",
+			"smart-tabs"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"brace-style": "off",
+		"key-spacing": "off",
+		"no-new-func": "off",
+		"no-plusplus": "off",
+		"no-param-reassign": "off",
+		"prefer-arrow-callback": "off",
+		"prefer-template": "off",
+		"no-template-curly-in-string": "off",
+		"default-case": "off",
+		"max-len": ["off"],
+		"comma-dangle": "off",
+		"no-else-return": "off",
+		"no-trailing-spaces": ["error", { "skipBlankLines": true }],
+		"no-multi-spaces": [
+			"error",
+			{
+				"exceptions": {
+					"BinaryExpression": true,
+					"VariableDeclarator": true,
+					"ImportDeclaration": true
+				}
+			}
+		],
+		"no-underscore-dangle": "off",
+		"eqeqeq": "off",
+		"space-infix-ops": "error",
+		"no-lonely-if": "error",
+		"no-tabs": "off",
+		"no-extra-semi": "error",
+		"no-var": "error",
+		"no-prototype-builtins": "off",
+		"no-console": "off",
+		"radix": [
+			"error",
+			"as-needed"
+		],
+		"import/extensions": "off",
+		"import/no-extraneous-dependencies": "off",
+		"import/newline-after-import": "off",
+		"import/no-unresolved": "off"
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	}
+}

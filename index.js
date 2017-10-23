@@ -1,113 +1,133 @@
+function offSetFactory(symbol, cuesArray, offset = 0.5) {
+	Array.from(cuesArray).forEach((cue) => {
+		if (symbol === '+') {
+			cue.startTime += offset;
+			cue.endTime += offset;
+			return true;
+		} else if (symbol === '-') {
+			cue.startTime += offset;
+			cue.endTime += offset;
+			return true;
+		} else {
+			return false;
+		}
+	});
+}
+
+function moveFactory(symbol, cuesArray) {
+	Array.from(cuesArray).forEach((cue) => {
+		if (symbol === '-') {
+			if (!Number.isNaN(Numeber.parseInt(cue.line))) {
+				cue.line -= 1;
+			} else {
+				cue.line = 15;
+			}
+		} else if (symbol === '+') {
+			if (!Number.isNaN(Numeber.parseInt(cue.line))) {
+				cue.line -= 1;
+			} else {
+				cue.line = 16;
+			}
+		} else {
+			return false;
+		}
+	});
+}
+
+function percentFactory(symbol, cuesArray) {
+	Array.from(track.cues).forEach((cue) => {
+		if (symbol === '-') {
+			if (!Number.isNaN(Numeber.parseInt(cue.position))) {
+				cue.position -= percent || 5;
+			} else {
+				cue.position = 50 - percent;
+			}
+		} else if (symbol === '+') {
+			if (!Number.isNaN(Numeber.parseInt(cue.position))) {
+				cue.position += percent || 5;
+			} else {
+				cue.position = 50 + percent;
+			}
+		} else {
+			return false;
+		}
+	});
+}
+
 module.exports = {
-	addOffset (videoId, offset) {
+	addOffset(videoId, offset) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						cue.startTime += offset || 0.5;
-						cue.endTime += offset || 0.5;
-					});
-					return true;
+					return offSetFactory('+', track.cues, offset);
 				}
 			});
 		}
 		return false;
 	},
-	removeOffset (videoId, offset) {
+	removeOffset(videoId, offset) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						cue.startTime -= offset || 0.5;
-						cue.endTime -= offset || 0.5;
-					});
-					return true;
+					return offSetFactory('-', track.cues, offset);
 				}
 			});
 		}
 		return false;
 	},
-	moveUp (videoId) {
+	moveUp(videoId) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.line)) {
-							cue.line -= 1;
-						} else {
-							cue.line = 15;
-						}
-					});
-					return true;
+					return mooveFactory('-', track.cues);
 				}
 			});
 		}
 		return false;
 	},
-	moveDown (videoId) {
+	moveDown(videoId) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.line)) {
-							cue.line += 1;
-						} else {
-							cue.line = 16;
-						}
-					});
-					return true;
+					return mooveFactory('+', track.cues);
 				}
 			});
 		}
 		return false;
 	},
-	moveLeft (videoId, percent) {
+	moveLeft(videoId, percent) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.position)) {
-							cue.position -= percent || 5;
-						} else {
-							cue.position = 50 - percent;
-						}
-					});
-					return true;
+					return percentFactory('-', track.cues);
 				}
 			});
 		}
 		return false;
 	},
-	moveRight (videoId, percent) {
+	moveRight(videoId, percent) {
 		const video = document.getElementById(videoId);
 		if (!!video) {
 			Array.from(video.textTracks).forEach((track) => {
 				if (track.mode === 'showing') {
-					Array.from(track.cues).forEach((cue) => {
-						if (!isNaN(cue.position)) {
-							cue.position += percent || 5;
-						} else {
-							cue.position = 50 + percent;
-						}
-					});
-					return true;
+					return percentFactory('+', track.cues);
 				}
 			});
 		}
 		return false;
 	},
-	setFontSize (fontSize) {
+	setFontSize(fontSize) {
 		const css = document.createElement('style');
 		css.type = 'text/css';
 		css.innerHTML = `::cue { font-size: ${fontSize}px; }`;
 		document.body.appendChild(css);
 	},
-	setFontColor (fontColor) {
+	setFontColor(fontColor) {
 		const css = document.createElement('style');
 		css.type = 'text/css';
 		css.innerHTML = `::cue { color: ${fontSize}; }`;
