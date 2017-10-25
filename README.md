@@ -9,6 +9,8 @@
 
 Live edit VTT subtitles (delay, sync, position, style...) on html5 native player.
 
+![Alt text](/demo.png?raw=true "Demo application")
+
 ```
 npm install vtt-live-edit --save
 ```
