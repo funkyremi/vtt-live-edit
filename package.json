@@ -1,6 +1,6 @@
 {
   "name": "vtt-live-edit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Live edit VTT subtitles (delay, sync, position, style...) on html5 native player",
   "main": "index.js",
   "scripts": {
