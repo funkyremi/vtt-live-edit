@@ -1,7 +1,7 @@
 # vtt-live-edit
 
 
-[![CircleCI](https://circleci.com/gh/funkyremi/vtt-live-edit.svg?style=svg)](https://circleci.com/gh/funkyremi/vtt-live-edit)
+[![CircleCI](https://circleci.com/gh/funkyremi/vtt-live-edit.svg?style=shield)](https://circleci.com/gh/funkyremi/vtt-live-edit)
 [![Known Vulnerabilities](https://snyk.io/test/github/funkyremi/vtt-live-edit/badge.svg)](https://snyk.io/test/github/funkyremi/vtt-live-edit)
 [![npm version](https://img.shields.io/npm/v/vtt-live-edit.svg)](https://www.npmjs.com/package/vtt-live-edit)
 [![Dependency Status](https://david-dm.org/funkyremi/vtt-live-edit.svg)](https://david-dm.org/funkyremi/vtt-live-edit)
