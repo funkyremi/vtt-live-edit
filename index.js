@@ -112,5 +112,15 @@ module.exports = {
 		css.type = 'text/css';
 		css.innerHTML = `::cue { color: ${fontColor}; }`;
 		document.body.appendChild(css);
+	},
+	setText(videoId, cueId, text) {
+		const video = document.getElementById(videoId);
+		if (video) {
+			Array.from(video.textTracks).forEach((track) => {
+				track.cues[cueId] = text;
+				return true;
+			});
+		}
+		return false;
 	}
 };
