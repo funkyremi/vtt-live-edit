@@ -73,6 +73,12 @@ Set the subtitles font color
 
 `setFontColor(<font color value>);`
 
+__setText__
+
+Set the text of a specific cue
+
+`setText(<video id>, <cue index>, <new text value>);`
+
 
 ## Usage
 
@@ -95,6 +101,7 @@ vtt.moveUp('video');            // Move subtitle one line up
 vtt.moveDown('video');          // Move subtitle one line down
 vtt.setFontSize(20);            // Set subtitle size to 20px
 vtt.setFontColor('#bbb');       // Set subtitle font color to #BBB
+vtt.setText('video', 3, 'Yo!'); // Set 4th cue text to 'Yo!'
 ```
 
 ## License
