@@ -100,7 +100,7 @@ vtt.moveRight('video', 5);      // Move subtitle 5% right
 vtt.moveUp('video');            // Move subtitle one line up
 vtt.moveDown('video');          // Move subtitle one line down
 vtt.setFontSize(20);            // Set subtitle size to 20px
-vtt.setFontColor('#bbb');       // Set subtitle size to #BBB
+vtt.setFontColor('#bbb');       // Set subtitle font color to #BBB
 vtt.setText('video', 3, 'Yo!'); // Set 4th cue text to 'Yo!'
 ```
 
